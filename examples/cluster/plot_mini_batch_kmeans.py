@@ -14,6 +14,9 @@ algorithms.
 
 """
 
+# Authors: The scikit-learn developers
+# SPDX-License-Identifier: BSD-3-Clause
+
 # %%
 # Generate the data
 # -----------------
@@ -21,6 +24,7 @@ algorithms.
 # We start by generating the blobs of data to be clustered.
 
 import numpy as np
+
 from sklearn.datasets import make_blobs
 
 np.random.seed(0)
@@ -35,6 +39,7 @@ X, labels_true = make_blobs(n_samples=3000, centers=centers, cluster_std=0.7)
 # ------------------------------
 
 import time
+
 from sklearn.cluster import KMeans
 
 k_means = KMeans(init="k-means++", n_clusters=3, n_init=10)

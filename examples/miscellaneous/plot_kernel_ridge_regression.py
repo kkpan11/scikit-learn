@@ -17,9 +17,10 @@ consists of a sinusoidal target function and strong noise added to every fifth
 datapoint.
 
 """
+
 # %%
-# Authors: Jan Hendrik Metzen <jhm@informatik.uni-bremen.de>
-# License: BSD 3 clause
+# Authors: The scikit-learn developers
+# SPDX-License-Identifier: BSD-3-Clause
 
 # %%
 # Generate sample data
@@ -40,9 +41,9 @@ X_plot = np.linspace(0, 5, 100000)[:, None]
 # Construct the kernel-based regression models
 # --------------------------------------------
 
+from sklearn.kernel_ridge import KernelRidge
 from sklearn.model_selection import GridSearchCV
 from sklearn.svm import SVR
-from sklearn.kernel_ridge import KernelRidge
 
 train_size = 100
 
