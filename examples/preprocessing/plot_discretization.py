@@ -27,12 +27,11 @@ up the data anywhere.
 
 """
 
-# Author: Andreas Müller
-#         Hanmin Qin <qinhanmin2005@sina.com>
-# License: BSD 3 clause
+# Authors: The scikit-learn developers
+# SPDX-License-Identifier: BSD-3-Clause
 
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import KBinsDiscretizer
