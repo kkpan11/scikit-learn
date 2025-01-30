@@ -1,14 +1,14 @@
 """
-=======================================================
+======================================================
 Scalable learning with polynomial kernel approximation
-=======================================================
+======================================================
+
+.. currentmodule:: sklearn.kernel_approximation
 
 This example illustrates the use of :class:`PolynomialCountSketch` to
 efficiently generate polynomial kernel feature-space approximations.
 This is used to train linear classifiers that approximate the accuracy
 of kernelized ones.
-
-.. currentmodule:: sklearn.kernel_approximation
 
 We use the Covtype dataset [2], trying to reproduce the experiments on the
 original paper of Tensor Sketch [1], i.e. the algorithm implemented by
@@ -21,8 +21,8 @@ approximating the accuracy of a kernelized classifier in a scalable manner.
 
 """
 
-# Author: Daniel Lopez-Sanchez <lope@usal.es>
-# License: BSD 3 clause
+# Authors: The scikit-learn developers
+# SPDX-License-Identifier: BSD-3-Clause
 
 # %%
 # Preparing the data
@@ -64,8 +64,8 @@ X_train, X_test, y_train, y_test = train_test_split(
 # the LIBSVM webpage, and then normalize to unit length as done in the
 # original Tensor Sketch paper [1].
 
-from sklearn.preprocessing import MinMaxScaler, Normalizer
 from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import MinMaxScaler, Normalizer
 
 mm = make_pipeline(MinMaxScaler(), Normalizer())
 X_train = mm.fit_transform(X_train)
@@ -80,11 +80,12 @@ X_test = mm.transform(X_test)
 # plot them later.
 
 import time
+
 from sklearn.svm import LinearSVC
 
 results = {}
 
-lsvm = LinearSVC(dual="auto")
+lsvm = LinearSVC()
 start = time.time()
 lsvm.fit(X_train, y_train)
 lsvm_time = time.time() - start
@@ -125,7 +126,7 @@ for n_components in N_COMPONENTS:
     for _ in range(n_runs):
         pipeline = make_pipeline(
             PolynomialCountSketch(n_components=n_components, degree=4),
-            LinearSVC(dual="auto"),
+            LinearSVC(),
         )
 
         start = time.time()
