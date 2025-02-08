@@ -1,19 +1,18 @@
-# Authors: Emmanuelle Gouillart <emmanuelle.gouillart@normalesup.org>
-#          Gael Varoquaux <gael.varoquaux@normalesup.org>
-# License: BSD 3 clause
+# Authors: The scikit-learn developers
+# SPDX-License-Identifier: BSD-3-Clause
 
 import numpy as np
+import pytest
 from scipy import ndimage
 from scipy.sparse.csgraph import connected_components
-import pytest
 
 from sklearn.feature_extraction.image import (
-    img_to_graph,
-    grid_to_graph,
-    extract_patches_2d,
-    reconstruct_from_patches_2d,
     PatchExtractor,
     _extract_patches,
+    extract_patches_2d,
+    grid_to_graph,
+    img_to_graph,
+    reconstruct_from_patches_2d,
 )
 
 
