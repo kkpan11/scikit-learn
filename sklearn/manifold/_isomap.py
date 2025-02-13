@@ -1,26 +1,28 @@
 """Isomap for manifold learning"""
 
-# Author: Jake Vanderplas  -- <vanderplas@astro.washington.edu>
-# License: BSD 3 clause (C) 2011
-import warnings
+# Authors: The scikit-learn developers
+# SPDX-License-Identifier: BSD-3-Clause
 
-import numpy as np
+import warnings
 from numbers import Integral, Real
 
+import numpy as np
 from scipy.sparse import issparse
-from scipy.sparse.csgraph import shortest_path
-from scipy.sparse.csgraph import connected_components
+from scipy.sparse.csgraph import connected_components, shortest_path
 
-from ..base import BaseEstimator, TransformerMixin, ClassNamePrefixFeaturesOutMixin
-from ..base import _fit_context
-from ..neighbors import NearestNeighbors, kneighbors_graph
-from ..neighbors import radius_neighbors_graph
-from ..utils.validation import check_is_fitted
+from ..base import (
+    BaseEstimator,
+    ClassNamePrefixFeaturesOutMixin,
+    TransformerMixin,
+    _fit_context,
+)
 from ..decomposition import KernelPCA
-from ..preprocessing import KernelCenterer
-from ..utils.graph import _fix_connected_components
-from ..utils._param_validation import Interval, StrOptions
 from ..metrics.pairwise import _VALID_METRICS
+from ..neighbors import NearestNeighbors, kneighbors_graph, radius_neighbors_graph
+from ..preprocessing import KernelCenterer
+from ..utils._param_validation import Interval, StrOptions
+from ..utils.graph import _fix_connected_components
+from ..utils.validation import check_is_fitted
 
 
 class Isomap(ClassNamePrefixFeaturesOutMixin, TransformerMixin, BaseEstimator):
@@ -93,7 +95,7 @@ class Isomap(ClassNamePrefixFeaturesOutMixin, TransformerMixin, BaseEstimator):
 
         .. versionadded:: 0.22
 
-    p : int, default=2
+    p : float, default=2
         Parameter for the Minkowski metric from
         sklearn.metrics.pairwise.pairwise_distances. When p = 1, this is
         equivalent to using manhattan_distance (l1), and euclidean_distance
@@ -433,5 +435,8 @@ class Isomap(ClassNamePrefixFeaturesOutMixin, TransformerMixin, BaseEstimator):
 
         return self.kernel_pca_.transform(G_X)
 
-    def _more_tags(self):
-        return {"preserves_dtype": [np.float64, np.float32]}
+    def __sklearn_tags__(self):
+        tags = super().__sklearn_tags__()
+        tags.transformer_tags.preserves_dtype = ["float64", "float32"]
+        tags.input_tags.sparse = True
+        return tags

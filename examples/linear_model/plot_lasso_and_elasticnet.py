@@ -7,9 +7,9 @@ The present example compares three l1-based regression models on a synthetic
 signal obtained from sparse and correlated features that are further corrupted
 with additive gaussian noise:
 
- - a :ref:`lasso`;
- - an :ref:`automatic_relevance_determination`;
- - an :ref:`elastic_net`.
+- a :ref:`lasso`;
+- an :ref:`automatic_relevance_determination`;
+- an :ref:`elastic_net`.
 
 It is known that the Lasso estimates turn to be close to the model selection
 estimates when the data dimensions grow, given that the irrelevant variables are
@@ -21,7 +21,8 @@ score, the fitting time and the sparsity of the estimated coefficients when
 compared with the ground-truth.
 """
 
-# Author: Arturo Amor <david-arturo.amor-quiroz@inria.fr>
+# Authors: The scikit-learn developers
+# SPDX-License-Identifier: BSD-3-Clause
 
 # %%
 # Generate synthetic dataset
@@ -112,9 +113,10 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.5, shuffle
 # :class:`~sklearn.model_selection.TimeSeriesSplit` cross-validation strategy to a
 # :class:`~sklearn.linear_model.LassoCV`. To keep the example simple and fast to
 # execute, we directly set the optimal value for alpha here.
+from time import time
+
 from sklearn.linear_model import Lasso
 from sklearn.metrics import r2_score
-from time import time
 
 t0 = time()
 lasso = Lasso(alpha=0.14).fit(X_train, y_train)
@@ -181,8 +183,8 @@ print(f"ElasticNet r^2 on test data : {r2_score_enet:.3f}")
 # and estimated coefficients of the respective linear models.
 
 import matplotlib.pyplot as plt
-import seaborn as sns
 import pandas as pd
+import seaborn as sns
 from matplotlib.colors import SymLogNorm
 
 df = pd.DataFrame(
@@ -242,6 +244,6 @@ plt.tight_layout()
 # References
 # ----------
 #
-#   .. [1] :doi:`"Lasso-type recovery of sparse representations for
+# .. [1] :doi:`"Lasso-type recovery of sparse representations for
 #    high-dimensional data" N. Meinshausen, B. Yu - The Annals of Statistics
-#    2009, Vol. 37, No. 1, 246–270 <10.1214/07-AOS582>`
+#    2009, Vol. 37, No. 1, 246-270 <10.1214/07-AOS582>`

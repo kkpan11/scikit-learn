@@ -12,9 +12,9 @@ classifier will also be demonstrated.
 
 """
 
-# Author: Alexandre Gramfort <alexandre.gramfort@telecom-paristech.fr>
-#         Jan Hendrik Metzen <jhm@informatik.uni-bremen.de>
-# License: BSD 3 clause.
+# Authors: The scikit-learn developers
+# SPDX-License-Identifier: BSD-3-Clause
+
 # %%
 # Dataset
 # -------
@@ -140,11 +140,11 @@ from collections import defaultdict
 import pandas as pd
 
 from sklearn.metrics import (
+    brier_score_loss,
+    f1_score,
+    log_loss,
     precision_score,
     recall_score,
-    f1_score,
-    brier_score_loss,
-    log_loss,
     roc_auc_score,
 )
 
@@ -222,7 +222,7 @@ class NaivelyCalibratedLinearSVC(LinearSVC):
 # %%
 
 lr = LogisticRegression(C=1.0)
-svc = NaivelyCalibratedLinearSVC(max_iter=10_000, dual="auto")
+svc = NaivelyCalibratedLinearSVC(max_iter=10_000)
 svc_isotonic = CalibratedClassifierCV(svc, cv=2, method="isotonic")
 svc_sigmoid = CalibratedClassifierCV(svc, cv=2, method="sigmoid")
 

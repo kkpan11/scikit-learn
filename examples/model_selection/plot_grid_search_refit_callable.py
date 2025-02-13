@@ -18,10 +18,11 @@ NY, USA: Springer New York Inc..
 
 """
 
-# Author: Wenhao Zhang <wenhaoz@ucla.edu>
+# Authors: The scikit-learn developers
+# SPDX-License-Identifier: BSD-3-Clause
 
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 
 from sklearn.datasets import load_digits
 from sklearn.decomposition import PCA
@@ -81,7 +82,7 @@ def best_low_complexity(cv_results):
 pipe = Pipeline(
     [
         ("reduce_dim", PCA(random_state=42)),
-        ("classify", LinearSVC(random_state=42, C=0.01, dual="auto")),
+        ("classify", LinearSVC(random_state=42, C=0.01)),
     ]
 )
 

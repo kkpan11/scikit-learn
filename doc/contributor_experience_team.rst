@@ -6,8 +6,8 @@
       img.avatar {border-radius: 10px;}
     </style>
     <div>
-    <a href='https://github.com/ArturoAmorQ'><img src='https://avatars.githubusercontent.com/u/86408019?v=4' class='avatar' /></a> <br />
-    <p>Arturo Amor</p>
+    <a href='https://github.com/virchan'><img src='https://avatars.githubusercontent.com/u/25701849?v=4' class='avatar' /></a> <br />
+    <p>Virgil Chan</p>
     </div>
     <div>
     <a href='https://github.com/alfaro96'><img src='https://avatars.githubusercontent.com/u/32649176?v=4' class='avatar' /></a> <br />
@@ -34,11 +34,19 @@
     <p>Norbert Preining</p>
     </div>
     <div>
+    <a href='https://github.com/StefanieSenger'><img src='https://avatars.githubusercontent.com/u/91849487?v=4' class='avatar' /></a> <br />
+    <p>Stefanie Senger</p>
+    </div>
+    <div>
     <a href='https://github.com/reshamas'><img src='https://avatars.githubusercontent.com/u/2507232?v=4' class='avatar' /></a> <br />
     <p>Reshama Shaikh</p>
     </div>
     <div>
     <a href='https://github.com/albertcthomas'><img src='https://avatars.githubusercontent.com/u/15966638?v=4' class='avatar' /></a> <br />
     <p>Albert Thomas</p>
+    </div>
+    <div>
+    <a href='https://github.com/marenwestermann'><img src='https://avatars.githubusercontent.com/u/17019042?v=4' class='avatar' /></a> <br />
+    <p>Maren Westermann</p>
     </div>
     </div>

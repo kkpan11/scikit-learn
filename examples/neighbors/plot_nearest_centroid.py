@@ -8,13 +8,16 @@ It will plot the decision boundaries for each class.
 
 """
 
-import numpy as np
-import matplotlib.pyplot as plt
-from matplotlib.colors import ListedColormap
-from sklearn import datasets
-from sklearn.neighbors import NearestCentroid
-from sklearn.inspection import DecisionBoundaryDisplay
+# Authors: The scikit-learn developers
+# SPDX-License-Identifier: BSD-3-Clause
 
+import matplotlib.pyplot as plt
+import numpy as np
+from matplotlib.colors import ListedColormap
+
+from sklearn import datasets
+from sklearn.inspection import DecisionBoundaryDisplay
+from sklearn.neighbors import NearestCentroid
 
 # import some data to play with
 iris = datasets.load_iris()

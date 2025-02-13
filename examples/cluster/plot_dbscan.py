@@ -12,6 +12,9 @@ for a demo of different clustering algorithms on 2D datasets.
 
 """
 
+# Authors: The scikit-learn developers
+# SPDX-License-Identifier: BSD-3-Clause
+
 # %%
 # Data generation
 # ---------------
@@ -44,8 +47,9 @@ plt.show()
 # the `labels_` attribute. Noisy samples are given the label math:`-1`.
 
 import numpy as np
-from sklearn.cluster import DBSCAN
+
 from sklearn import metrics
+from sklearn.cluster import DBSCAN
 
 db = DBSCAN(eps=0.3, min_samples=10).fit(X)
 labels = db.labels_
